@@ -1,4 +1,4 @@
-# 🧠 Code Review Assistant - Enhanced Edition
+# Code Review Assistant 
 
 A modern, high-performance Python GUI application for reviewing code using a local Large Language Model (LLM). Features hybrid Python-C++ architecture for optimal performance, complete privacy, and professional code analysis.
 
@@ -8,7 +8,7 @@ A modern, high-performance Python GUI application for reviewing code using a loc
 
 ---
 
-## ✨ Features
+## Features
 
 ### Core Functionality
 - 🤖 **Local LLM-powered reviews** using [Ollama](https://ollama.com/) + [Qwen2.5-Coder](https://huggingface.co/Qwen/Qwen2.5-Coder)
@@ -18,7 +18,7 @@ A modern, high-performance Python GUI application for reviewing code using a loc
 - 💬 **Interactive follow-up questions** for deeper analysis
 
 ### Performance Enhancements
-- ⚡ **Hybrid C++ backend** for performance-critical operations
+-  **Hybrid C++ backend** for performance-critical operations
 - 🚄 **Adaptive streaming** with intelligent buffering
 - 🧵 **Multi-threaded execution** (UI never freezes)
 - 📊 **Real-time progress tracking** and status updates
@@ -33,57 +33,6 @@ A modern, high-performance Python GUI application for reviewing code using a loc
 - ⚙️ **Configurable settings** via environment variables and config files
 
 ---
-
-## 🏗️ Architecture
-
-The application uses a **hybrid Python-C++ architecture** for optimal performance:
-
-```
-┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
-│   Python GUI    │◄──►│   Python Bridge  │◄──►│   C++ Core      │
-│   (PyQt6)       │    │   (pybind11)     │    │   (Performance) │
-├─────────────────┤    ├──────────────────┤    ├─────────────────┤
-│ • UI Components │    │ • Task Management│    │ • Text Streaming│
-│ • Event Handling│    │ • Error Handling │    │ • Buffer Mgmt   │
-│ • Theme System  │    │ • Config System  │    │ • File I/O      │
-│ • User Input    │    │ • Async Bridge   │    │ • Threading     │
-└─────────────────┘    └──────────────────┘    └─────────────────┘
-```
-
----
-
-## 📁 Project Structure
-
-```
-code_review_app/
-├── 📱 app.py                    # Main application entry point
-├── 🔧 build.py                 # Build script for C++ components
-├── 📋 requirements.txt         # Python dependencies
-├── ⚙️ setup.py                 # C++ module build configuration
-├── 🏗️ CMakeLists.txt          # CMake build configuration
-│
-├── 📱 gui/                     # GUI components
-│   ├── main_window.py          # Enhanced main window with optimizations
-│   └── file_loader.py          # Robust file loading with C++ backend
-│
-├── 🤖 llm_interface/           # LLM communication layer
-│   ├── qwen_runner.py          # Enhanced LLM client with retry logic
-│   └── review_task.py          # Optimized task management with C++ streaming
-│
-├── ⚡ core_cpp/               # C++ performance modules
-│   └── text_streamer.cpp       # High-performance text streaming and buffering
-│
-├── ⚙️ config/                  # Configuration management
-│   └── app_config.py           # Centralized configuration system
-│
-├── 🧪 sandbox/                # Future: sandboxed code execution
-├── 📊 utils/                   # Utility modules
-└── 🧪 test_files/             # Test files and examples
-```
-
----
-
-## 🚀 Quick Start
 
 ### 1. Prerequisites
 
@@ -156,7 +105,7 @@ python app.py
 
 ---
 
-## ⚙️ Configuration
+## Configuration
 
 The application supports flexible configuration through multiple methods:
 
@@ -187,7 +136,7 @@ The app creates `~/.code_review_app/config.json`:
 
 ---
 
-## 🎯 Usage Examples
+## Usage Examples
 
 ### Basic Code Review
 1. Select a Python file with the file picker
@@ -211,7 +160,7 @@ Assistant: [Code example with explanations]
 
 ---
 
-## 🔧 Development
+## Development
 
 ### Building from Source
 
@@ -256,111 +205,3 @@ export LOG_LEVEL=DEBUG
 import psutil
 import memory_profiler
 ```
-
----
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-**"C++ performance module not available"**
-- Run `python build.py` to build the C++ components
-- Ensure CMake and a C++ compiler are installed
-- The app will work with Python fallback (reduced performance)
-
-**"Failed to connect to LLM service"**
-- Verify Ollama is installed and running: `ollama --version`
-- Check the model is available: `ollama list`
-- Start the model: `ollama run qwen2.5-coder`
-- Test connection manually: `curl http://localhost:11434/api/tags`
-
-**"GUI freezing or slow performance"**
-- Build the C++ performance module for optimal streaming
-- Reduce buffer size in configuration
-- Check system memory usage
-
-**"File loading errors"**
-- Ensure the selected file is a valid Python file (.py extension)
-- Check file permissions and encoding
-- File size limit is 10MB
-
-### Performance Optimization
-
-**For Best Performance:**
-1. Build C++ performance modules
-2. Use SSD storage for faster file I/O
-3. Ensure adequate RAM (8GB+ recommended)
-4. Close unnecessary applications to free CPU resources
-
-**Memory Usage:**
-- The app limits conversation history to prevent memory bloat
-- Large code files are automatically truncated
-- File caching is limited to 5 recent files
-
----
-
-## 🛣️ Roadmap
-
-### Version 2.1 (Next Release)
-- [ ] **Multi-file project analysis** - Analyze entire codebases
-- [ ] **Additional language support** - C++, Java, JavaScript
-- [ ] **Code execution sandbox** - Safe code testing environment
-- [ ] **Export functionality** - Save reviews as PDF/HTML
-
-### Version 2.2 (Future)
-- [ ] **Plugin system** - Extensible architecture for custom analyzers
-- [ ] **Cloud LLM support** - Optional integration with remote models
-- [ ] **Team collaboration** - Share and discuss reviews
-- [ ] **CI/CD integration** - Automated code review in pipelines
-
-### Performance & Quality
-- [ ] **Advanced caching** - Intelligent review caching
-- [ ] **Real-time collaboration** - Live editing and review
-- [ ] **Custom model training** - Fine-tune models for specific codebases
-
----
-
-## 🤝 Contributing
-
-We welcome contributions! Here's how to get started:
-
-1. **Fork the repository** and create a feature branch
-2. **Install development dependencies:** `pip install -r requirements.txt`
-3. **Make your changes** following the existing code style
-4. **Run tests:** `pytest tests/`
-5. **Submit a pull request** with a clear description
-
-### Development Guidelines
-- Follow PEP 8 for Python code
-- Use modern C++17 features for C++ components
-- Include tests for new functionality
-- Update documentation for user-facing changes
-
----
-
-## 📄 License
-
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
-
-**TL;DR:** Use it, modify it, distribute it, make it better. Just don't blame us if something goes wrong! 😄
-
----
-
-## 🙏 Acknowledgments
-
-- **[Ollama](https://ollama.com/)** - For making local LLM deployment simple
-- **[Qwen Team](https://github.com/QwenLM/Qwen)** - For the excellent code-focused language model
-- **[PyQt](https://www.riverbankcomputing.com/software/pyqt/)** - For the powerful GUI framework
-- **[pybind11](https://github.com/pybind/pybind11)** - For seamless Python-C++ integration
-
----
-
-## 📬 Support & Contact
-
-- **Issues:** [GitHub Issues](https://github.com/yourusername/code-review-app/issues)
-- **Discussions:** [GitHub Discussions](https://github.com/yourusername/code-review-app/discussions)
-- **Email:** [your.email@example.com](mailto:your.email@example.com)
-
----
-
-**⭐ If you find this project helpful, please consider giving it a star on GitHub!**
