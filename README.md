@@ -11,26 +11,26 @@ A modern, high-performance Python GUI application for reviewing code using a loc
 ## Features
 
 ### Core Functionality
-- 🤖 **Local LLM-powered reviews** using [Ollama](https://ollama.com/) + [Qwen2.5-Coder](https://huggingface.co/Qwen/Qwen2.5-Coder)
-- 🖥️ **Modern PyQt6 GUI** with native look-and-feel
-- 📁 **Smart file picker** with validation for Python files
-- 🔒 **Complete privacy** - all processing stays on your machine
-- 💬 **Interactive follow-up questions** for deeper analysis
+-  **Local LLM-powered reviews** using [Ollama](https://ollama.com/) + [Qwen2.5-Coder](https://huggingface.co/Qwen/Qwen2.5-Coder)
+-  **Modern PyQt6 GUI** with native look-and-feel
+-  **Smart file picker** with validation for Python files
+-  **Complete privacy** - all processing stays on your machine
+-  **Interactive follow-up questions** for deeper analysis
 
 ### Performance Enhancements
 -  **Hybrid C++ backend** for performance-critical operations
-- 🚄 **Adaptive streaming** with intelligent buffering
-- 🧵 **Multi-threaded execution** (UI never freezes)
-- 📊 **Real-time progress tracking** and status updates
-- 💾 **Efficient memory management** with conversation limits
+-  **Adaptive streaming** with intelligent buffering
+-  **Multi-threaded execution** (UI never freezes)
+-  **Real-time progress tracking** and status updates
+-  **Efficient memory management** with conversation limits
 
 ### Professional Features
-- 🎨 **Dark/Light theme support** with system integration
-- 📝 **Enhanced markdown rendering** with syntax highlighting
-- 🔧 **Comprehensive error handling** and retry logic
-- 📋 **Connection testing** and health monitoring
-- 🗂️ **File caching** for improved performance
-- ⚙️ **Configurable settings** via environment variables and config files
+-  **Dark/Light theme support** with system integration
+-  **Enhanced markdown rendering** with syntax highlighting
+-  **Comprehensive error handling** and retry logic
+-  **Connection testing** and health monitoring
+-  **File caching** for improved performance
+-  **Configurable settings** via environment variables and config files
 
 ---
 
