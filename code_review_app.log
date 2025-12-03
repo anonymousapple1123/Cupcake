@@ -110,3 +110,6 @@
 2025-09-15 12:47:55,037 - llm_interface.review_task - INFO - Task ReviewTask cancelled
 2025-09-15 12:47:55,038 - gui.main_window - INFO - Application closing
 2025-11-27 12:43:10,066 - gui.file_loader - WARNING - C++ performance module not available. Using Python fallback.
+2025-12-03 21:39:31,624 - gui.file_loader - WARNING - C++ performance module not available. Using Python fallback.
+2025-12-03 21:43:12,784 - gui.file_loader - WARNING - C++ performance module not available. Using Python fallback.
+2025-12-03 21:44:03,536 - gui.file_loader - WARNING - C++ performance module not available. Using Python fallback.
