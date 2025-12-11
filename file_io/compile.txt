@@ -1,3 +1,7 @@
 clang++ -c -O0 -std=c++17 -Wall -Wextra testfile.cpp   -o main.o
 clang++ -c -O0 -std=c++17 -Wall -Wextra file_writer.cpp    -o filewriter.o
 clang++ main.o filewriter.o  -o test_exe
+
+
+
+clang++ main.cpp -lcurl -o client
