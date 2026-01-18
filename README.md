@@ -1,4 +1,4 @@
-# Code Review Assistant 
+# Codex generator
 
 A modern, high-performance Python GUI application for reviewing code using a local Large Language Model (LLM). Features hybrid Python-C++ architecture for optimal performance, complete privacy, and professional code analysis.
 
