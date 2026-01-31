@@ -11,7 +11,7 @@ find_package(pybind11 REQUIRED)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
 # Create the Python extension module
-pybind11_add_module(core_performance 
+pybind11_add_module(core_performance
     core_cpp/text_streamer.cpp
 )
 

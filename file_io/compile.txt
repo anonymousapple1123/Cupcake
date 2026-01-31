@@ -1,0 +1,13 @@
+--> Test file io module
+clang++ -c -O0 -std=c++17 -Wall -Wextra testfile.cpp   -o main.o
+clang++ -c -O0 -std=c++17 -Wall -Wextra file_writer.cpp    -o filewriter.o
+clang++ main.o filewriter.o  -o test_fileIO_exe
+
+--> testing llm connection module
+
+clang++ -c -O0 -std=c++17 -Wall -Wextra llm_talker.cpp    -o llmconnection.o
+clang++ -c -O0 -std=c++17 -Wall -Wextra test_llm.cpp   -o main.o
+clang++ main.o llmconnection.o  -o test_llm_exe
+
+
+clang++ main.cpp -lcurl -o client
