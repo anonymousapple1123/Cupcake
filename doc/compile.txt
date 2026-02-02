@@ -9,5 +9,11 @@ clang++ -c -O0 -std=c++17 -Wall -Wextra llm_talker.cpp    -o llmconnection.o
 clang++ -c -O0 -std=c++17 -Wall -Wextra test_llm.cpp   -o main.o
 clang++ main.o llmconnection.o  -o test_llm_exe
 
+02/02/2026
+Compile tested the llm talker_file with main as runner, json file is being
+created with no output and errors and no other response is generated.
 
-clang++ main.cpp -lcurl -o client
+g++ -c main.cpp
+g++ -c llm_talker.cpp
+g++ main.o llm_talker.o -o testrun_1        //linking
+_____________________________________________________________________________
