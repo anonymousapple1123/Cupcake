@@ -2,15 +2,16 @@
 #include <iostream>
 #include <fstream>
 
-static bool talker(){
-    httplib::Client cli("localhost", 5000);
+static bool talker(std::string model_name, std::string user_query){
+    httplib::Client cli("localhost", 11434);
 
     std::string body = R"({
-            "model": "qwen2.5-coder",
-            "messages": [
-                {"role":"user", "content":"Write a C++ function to check if a number is prime."}
-            ]
-        })";
+        "model": ")" + model_name + R"(",
+        "messages": [
+            {"role": "user", "content": ")" + user_query + R"("}
+        ]
+    })";
+
 
     auto res = cli.Post(
             "/v1/chat/completions",

@@ -2,6 +2,6 @@
 #include "llm_talker.cpp"
 
 int main() {
-    talker();
+    talker("qwen3", "hi");
     return 0;
 }
