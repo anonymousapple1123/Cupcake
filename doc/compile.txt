@@ -24,6 +24,9 @@ The json file doesn't create anymore and correct error is written onto log file.
 
 ./testrun_1 2> error.log
 
+Shell script "cleanbuild.sh" will compile files and runs executable then deletes the
+object files.
+Shell script "resclean" will delete the error.log file and model output json file.
 Notes*
     In unix-like systems the the file descriptors are numbers
     0 -> stdin, 1-> stdout, 2-> stderr
