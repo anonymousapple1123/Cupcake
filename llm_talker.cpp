@@ -1,16 +1,23 @@
 #include "dependencies/httplib.h"
 #include <iostream>
 #include <fstream>
+#include "dependencies/json.hpp"
+using json = nlohmann::json;
 
 static bool talker(std::string model_name, std::string user_query){
     httplib::Client cli("localhost", 11434);
 
-    std::string body = R"({
-        "model": ")" + model_name + R"(",
-        "messages": [
-            {"role": "user", "content": ")" + user_query + R"("}
-        ]
-    })";
+    json body_json;
+
+    body_json["model"] = model_name;
+    body_json["messages"] = json::array({
+        {
+            {"role", "user"},
+            {"content", user_query}
+        }
+    });
+
+    std::string body = body_json.dump();
 
 
     auto res = cli.Post(
