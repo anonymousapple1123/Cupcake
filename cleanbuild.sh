@@ -2,7 +2,11 @@
 
 # Compile the C++ files
 echo "Compiling files..."
-g++ -c main.cpp llm_talker.cpp
+g++ -c main.cpp
+cd core
+g++ -c llm_talker.cpp
+mv llm_talker.o ../
+cd ..
 
 # Check if compilation was successful
 if [ $? -ne 0 ]; then
@@ -22,6 +26,7 @@ fi
 # Run the executable and log errors
 echo "Running the program..."
 ./testrun_1 2> auto_error.log
+mv auto_error.log error_logs/
 
 # Clean up the generated files
 echo "Cleaning up..."
