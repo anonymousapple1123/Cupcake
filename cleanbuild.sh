@@ -1,7 +1,8 @@
 #!/bin/bash
-
+OS=$(uname)
 # Compile the C++ files
-echo "Compiling files..."
+echo "** Clean Build Started **"
+echo "Compiling..."
 g++ -c main.cpp
 cd core
 g++ -c llm_talker.cpp
@@ -15,20 +16,36 @@ if [ $? -ne 0 ]; then
 fi
 
 # Link the object files to create the executable
-g++ main.o llm_talker.o -o testrun_1
+if [ "$OS" = "Linux" ]; then
+    g++ main.o llm_talker.o -o main_linux
+    cp main_linux bins/
+elif [ "$OS" = "Darwin" ]; then
+    g++ main.o llm_talker.o -o main_darwin
+    cp main_darwin bins/
+fi
 
 # Check if linking was successful
 if [ $? -ne 0 ]; then
-    echo "Linking failed. Exiting."
+    echo "**Linking failed** Exiting..."
     exit 1
 fi
 
 # Run the executable and log errors
 echo "Running the program..."
-./testrun_1 2> auto_error.log
+if [ "$OS" = "Linux" ]; then
+    ./main_linux 2> auto_error.log
+elif [ "$OS" = "Darwin" ]; then
+    ./main_darwin 2> auto_error.log
+fi
+
 mv auto_error.log error_logs/
 
 # Clean up the generated files
 echo "Cleaning up..."
-rm main.o llm_talker.o testrun_1
-echo "Cleanup done."
+rm main.o llm_talker.o
+if [ "$OS" = "Linux" ]; then
+    rm main_linux
+elif [ "$OS" = "Darwin" ]; then
+    rm main_darwin
+fi
+echo "** Clean Build Completed **"
