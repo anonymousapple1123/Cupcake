@@ -2,7 +2,7 @@
 #include <iostream>
 
 int main() {
-  std::string model_name{"qwen3"};
+  std::string model_name{"qwen2.5-coder"};
   std::string user_query;
   // std::cout<<"\nModel :";
   // std::cin>>model_name;

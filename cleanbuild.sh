@@ -39,6 +39,7 @@ elif [ "$OS" = "Darwin" ]; then
 fi
 
 mv auto_error.log error_logs/
+mv model_output.json codex_res/
 
 # Clean up the generated files
 echo "Cleaning up..."
