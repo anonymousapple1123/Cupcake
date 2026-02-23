@@ -15,7 +15,7 @@ fi
 
 # Link the object files to create the executable
 if [ "$OS" = "Linux" ]; then
-    g++ main.o llm_talker.o file_parser.o -o main_linux
+    g++ main.o llm_talker.o -o main_linux
     cp main_linux bins/
 elif [ "$OS" = "Darwin" ]; then
     g++ main.o llm_talker.o -o main_darwin
