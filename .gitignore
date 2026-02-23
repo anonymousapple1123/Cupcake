@@ -1,3 +1,5 @@
 build/
 codex_res/
+error_logs/
+parsed_files/
 **/.DS_Store
