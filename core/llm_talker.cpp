@@ -21,20 +21,20 @@ static bool talker(std::string& model_name, std::string& user_query){
     std::string body = body_json.dump();
 
 
-    auto res = cli.Post(
-            "/v1/chat/completions",
-            body,
-            "application/json"
-        );
+    auto result = httplib::stream::Post( cli,
+        "/v1/chat/completions",
+                   body,
+                   "application/json"
+               );
 
-        if (!res) {
-            std::cerr << "Request error\n";
-            return 1;
+    if(result){
+        while (result.next()) {
+                    std::cout.write(result.data(), result.size());
         }
-        // future me : add linearly progressable names for the json files
-        std::ofstream out("model_output.json");
-            out << res->body;
-            out.close();
-
-            return true;
-}
+        }else{
+            std::cerr << "Request error\n";
+            return false; // Return false on error
+        }
+        std::cout << "Streaming completed." << std::endl; // Indicate streaming has finished
+        return true;
+    }
