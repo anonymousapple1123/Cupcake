@@ -1,5 +1,8 @@
 build/
 codex_res/*
+!codex_res/.gitkeep
 error_logs/*
+!error_logs/.gitkeep
 parsed_files/*
+!parsed_files/.gitkeep
 **/.DS_Store
