@@ -3,12 +3,12 @@
 OS=$(uname)
 if [ "$OS" = "Linux" ]; then
     echo "Running Linux compatible executable..."
-    cd bins && ./main_linux
-    mv model_output.json ../ && cd .. && mv model_output.json codex_res/
+    ./bins/main_linux
+    mv model_output.json codex_res/ && mv response.txt parsed_files/
 elif [ "$OS" = "Darwin" ]; then
     echo "Running macOS compatible executable..."
-    cd bins && ./main_darwin
-    mv model_output.json ../ && cd .. && mv model_output.json codex_res/
+    ./bins/main_darwin
+    mv model_output.json codex_res/ && mv response.txt parsed_files/
 else
     echo "$OS"
     echo "Error : Unsupported platform"

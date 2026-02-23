@@ -1,13 +1,11 @@
 #!/bin/bash
 OS=$(uname)
 # Compile the C++ files
-echo "** Clean Build Started **"
+echo "*** Clean Build Started ***"
 echo "Compiling..."
 g++ -c main.cpp
-cd core
-g++ -c llm_talker.cpp
-mv llm_talker.o ../
-cd ..
+g++ -c core/llm_talker.cpp
+#g++ -c core/file_parser.cpp
 
 # Check if compilation was successful
 if [ $? -ne 0 ]; then
@@ -17,7 +15,7 @@ fi
 
 # Link the object files to create the executable
 if [ "$OS" = "Linux" ]; then
-    g++ main.o llm_talker.o -o main_linux
+    g++ main.o llm_talker.o file_parser.o -o main_linux
     cp main_linux bins/
 elif [ "$OS" = "Darwin" ]; then
     g++ main.o llm_talker.o -o main_darwin
@@ -40,13 +38,14 @@ fi
 
 mv auto_error.log error_logs/
 mv model_output.json codex_res/
+mv response.txt parsed_files/
 
 # Clean up the generated files
 echo "Cleaning up..."
-rm main.o llm_talker.o
+rm main.o llm_talker.o file_parser.o
 if [ "$OS" = "Linux" ]; then
     rm main_linux
 elif [ "$OS" = "Darwin" ]; then
     rm main_darwin
 fi
-echo "** Clean Build Completed **"
+echo "*** Clean Build Completed ***"

@@ -28,9 +28,12 @@ static bool talker(std::string& model_name, std::string& user_query){
                );
 
     if(result){
+        std::ofstream out("model_output.json");
         while (result.next()) {
-                    std::cout.write(result.data(), result.size());
+                    //std::cout.write(result.data(), result.size()); //throws llm response to terminal
+                    out << result.data();
         }
+        out.close();
         }else{
             std::cerr << "Request error\n";
             return false; // Return false on error

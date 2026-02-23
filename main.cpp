@@ -1,4 +1,5 @@
 #include "core/llm_talker.cpp"
+#include "core/file_parser.hpp"
 #include <iostream>
 
 int main() {
@@ -14,6 +15,8 @@ int main() {
   if (!user_query.empty()) {
     std::cout << "\ngenerating..." << std::endl;
     talker(model_name, user_query);
+    std::cout<<"\nAttempting Parsing..." <<std::endl;
+    extract_and_save_response("model_output.json", "response.txt");
   } else {
     std::cout << "Empty prompt: exiting..." << std::endl;
   }
