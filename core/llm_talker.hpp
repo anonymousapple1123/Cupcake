@@ -1,3 +1,4 @@
+#pragma once
 #include "../dependencies/httplib.h"
 #include "../dependencies/json.hpp"
 #include <iostream>

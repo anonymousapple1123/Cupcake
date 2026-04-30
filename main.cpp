@@ -1,4 +1,4 @@
-#include "core/llm_talker.cpp"
+#include "core/llm_talker.hpp"
 #include "core/file_parser.hpp"
 #include <iostream>
 
