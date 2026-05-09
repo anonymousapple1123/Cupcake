@@ -1,1 +1,0 @@
-{"id":"chatcmpl-276","object":"chat.completion","created":1778344782,"model":"qwen2.5-coder","system_fingerprint":"fp_ollama","choices":[{"index":0,"message":{"role":"assistant","content":"1 + 90 equals 91."},"finish_reason":"stop"}],"usage":{"prompt_tokens":37,"completion_tokens":11,"total_tokens":48}}
