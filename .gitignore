@@ -2,4 +2,5 @@ build/
 !codex_res/.rtf
 !error_logs/.rtf
 !parsed_files/.rtf
+!test/.cpp
 **/.DS_Store
