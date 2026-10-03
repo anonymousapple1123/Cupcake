@@ -4,8 +4,11 @@
 #include <exception>
 #include <iostream>
 
-const int PARAMETERS{0};
-const int QUANTIZATION{0};
+const int PARAMETERS{0};//not implemeted yet, looks like i was testing the model selection process
+                        // It appears I have no way to get model name(without huggingface API) and the
+                        // user had to input the name of the model.
+                        // Probably need to Implement the API Calls later for now I must hard code some model names.
+const int QUANTIZATION{0}; // And yes i dunno how this will work for hard coded version. :/
 
 int main(int argc, char *argv[]) {
   // Adding cli args later
