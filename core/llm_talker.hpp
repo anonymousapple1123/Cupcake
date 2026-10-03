@@ -4,10 +4,12 @@
 #include <fstream>
 #include <iostream>
 
+constexpr int PORT = 11434;
+
 using json = nlohmann::json;
 
 static bool talker(std::string &model_name, std::string &user_query) {
-  httplib::Client cli("localhost", 11434);
+  httplib::Client cli("localhost", PORT);
 
   json body_json;
 
