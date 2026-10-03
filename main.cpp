@@ -12,26 +12,38 @@ const int QUANTIZATION{0}; // And yes i dunno how this will work for hard coded 
 
 int main(int argc, char *argv[]) {
   // Adding cli args later
+  bool verbose = false;
+  for (int i = 1; i< argc; ++i){
+      std::string arg  = argv[i];
+      if(arg == "-v" || "--verbose"){
+          verbose = true;
+      }else{
+          std::cout<<"Unknown option: "<<arg<<std::endl;
+      }
+  }
   std::string model_name = model_switch(PARAMETERS, QUANTIZATION);
   // std::string model_name{"qwen2.5-coder"};
 
   std::string user_query = usr_query();
 
   if (!user_query.empty()) {
-    std::cout << "\nGenerating..." << std::endl;
+    if(verbose)
+        std::cout << "\nGenerating..." << std::endl;
     try {
       talker(model_name, user_query);
     } catch (std::exception e) {
       std::cout << "Error in llm connection: " << e.what() << std::endl;
     }
-    std::cout << "\nAttempting Parsing..." << std::endl;
+    if(verbose)
+        std::cout << "\nAttempting Parsing..." << std::endl;
     try {
       extract_and_save_response("model_output.json", "response.txt");
     } catch (std::exception e) {
       std::cout << "Error in parsing : " << e.what() << std::endl;
     }
   } else {
-    std::cout << "Empty prompt: exiting..." << std::endl;
+    if(verbose)
+        std::cout << "Empty prompt: exiting..." << std::endl;
   }
   return 0;
 }
