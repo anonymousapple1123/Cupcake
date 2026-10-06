@@ -34,7 +34,6 @@ static bool talker(std::string &model_name, std::string &user_query) {
     std::cerr << "Request error\n";
     return false; // Return false on error
   }
-  std::cout << "Streaming completed."
-            << std::endl; // Indicate streaming has finished
+  //std::cout << "Streaming completed."<< std::endl; // Indicate streaming has finished
   return true;
 }

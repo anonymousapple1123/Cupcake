@@ -27,23 +27,26 @@ int main(int argc, char *argv[]) {
   std::string user_query = usr_query();
 
   if (!user_query.empty()) {
-    if(verbose)
+    if(verbose){
         std::cout << "\nGenerating..." << std::endl;
+    }
     try {
       talker(model_name, user_query);
     } catch (std::exception e) {
       std::cout << "Error in llm connection: " << e.what() << std::endl;
     }
-    if(verbose)
+    if(verbose){
         std::cout << "\nAttempting Parsing..." << std::endl;
+    }
     try {
       extract_and_save_response("model_output.json", "response.txt");
     } catch (std::exception e) {
       std::cout << "Error in parsing : " << e.what() << std::endl;
     }
   } else {
-    if(verbose)
+    if(verbose){
         std::cout << "Empty prompt: exiting..." << std::endl;
+    }
   }
   return 0;
 }

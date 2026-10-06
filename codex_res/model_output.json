@@ -1,0 +1,1 @@
+{"id":"chatcmpl-958","object":"chat.completion","created":1791300829,"model":"qwen2.5-coder","system_fingerprint":"fp_ollama","choices":[{"index":0,"message":{"role":"assistant","content":"2 + 8 equals 10."},"finish_reason":"stop"}],"usage":{"prompt_tokens":36,"prompt_tokens_details":{"cached_tokens":24},"completion_tokens":10,"total_tokens":46}}

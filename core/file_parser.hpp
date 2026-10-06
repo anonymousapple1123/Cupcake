@@ -33,7 +33,7 @@ void extract_and_save_response(const std::string &json_file_path,
   std::ofstream txt_file(output_txt_path);
   if (txt_file.is_open()) {
     txt_file << main_response;
-    std::cout << "Parsing successful " << std::endl;
+    //std::cout << "Parsing successful " << std::endl;
   } else {
     std::cerr << "File read error <txt_file()>" << std::endl;
   }
